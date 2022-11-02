@@ -2,7 +2,8 @@ import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 from get_id import get_id
 from playlists import get_playlist
-from graphic import WockaShuffle    
+from graphic import WockaShuffle  
+from kivy.app import App 
 
 def main():
     # get_ids returns: [client_id, client_secret]
@@ -25,7 +26,7 @@ def main():
         playlist_to_shuffle = get_playlist(user_playlists, playlist_name)
         print(playlist_to_shuffle)
         print("Run")
-        WockaShuffle().run()
+        WockaShuffle(spotify).run()
 
         
 main()
