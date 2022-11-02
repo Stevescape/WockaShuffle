@@ -9,11 +9,14 @@ from kivy.uix.floatlayout import FloatLayout
 class WockaShuffle(App):
 
     def build(self):
+        
+        def pause(instance):
+            print("I've been pressed")
         layout = FloatLayout(size=(200, 200))
-        pause_button = Button(text="Pause", pos_hint=(.5, .5), size_hint=(.5, .5))
+        pause_button = Button(text="Pause", pos=(.5, .5), size_hint=(.5, .5))
+        pause_button.bind(on_press=pause)
         layout.add_widget(pause_button)
         return layout
     
-    def pause_song(instance):
-        print("I've been pressed")
+   
 
