@@ -25,4 +25,5 @@ def main():
         print("Run")
         WockaShuffle().run()
         
+main()
 
