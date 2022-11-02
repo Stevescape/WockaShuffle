@@ -1,6 +1,7 @@
 def get_id(id_to_get):
     file = open("config.txt", "r")
     lines = file.readlines()
+    file.close()
     for line in lines:
         line = line.strip("\n").split()
         if line[0].strip(":") == id_to_get:
