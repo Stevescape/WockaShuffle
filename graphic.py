@@ -11,7 +11,7 @@ class WockaShuffle(App):
     def build(self):
         
         def pause(instance):
-            print("I've been pressed")
+            pause()
         layout = FloatLayout(size=(200, 200))
         pause_button = Button(text="Pause", pos=(.5, .5), size_hint=(.5, .5))
         pause_button.bind(on_press=pause)

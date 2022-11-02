@@ -2,7 +2,7 @@ import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 from get_id import get_id
 from playlists import get_playlist
-from graphic import WockaShuffle
+from graphic import WockaShuffle    
 
 def main():
     # get_ids returns: [client_id, client_secret]
@@ -17,13 +17,16 @@ def main():
         spotify = spotipy.Spotify(auth_manager=auth)
 
         playlist_name = get_id("PLAYLIST_NAME")
-        user_playlists = spotify.user_playlist("29wsxr30ahxhs1yutm7tfrumo")
+        cur_user = spotify.current_user()["id"]
+        print(cur_user)
+        user_playlists = spotify.current_user_playlists()
 
         shuffled_playlist = []
         playlist_to_shuffle = get_playlist(user_playlists, playlist_name)
         print(playlist_to_shuffle)
         print("Run")
         WockaShuffle().run()
+
         
 main()
 
