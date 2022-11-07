@@ -14,8 +14,6 @@ def get_tracks(spotify, playlist_id, length):
     
         for track in tracks:
             actual_track = track["track"]
-            track_id = actual_track["id"]
-            track_name = actual_track["name"]
-            ret_val.append(track_id)
+            ret_val.append(actual_track)
         offset += 100
     return ret_val

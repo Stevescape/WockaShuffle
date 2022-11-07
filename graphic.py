@@ -55,6 +55,9 @@ class WockaShuffle(App):
             # it has meta data and video_thumbnail info.
             # You have to do tracks[int]["track"] to get the actual track
             tracks = get_tracks(self.spotify, playlist_id, playlist_length)
+            single_track = tracks[91]
+            print(single_track["name"])
+            print(single_track["artists"])
             
             
         layout = FloatLayout(size_hint=(1, 1))
