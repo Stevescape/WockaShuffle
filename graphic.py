@@ -45,8 +45,6 @@ class WockaShuffle(App):
             print(cur_user)
             user_playlists = self.spotify.current_user_playlists()["items"]
             
-            shuffled_playlist = []  
-
             playlist_to_shuffle = get_playlist(user_playlists, playlist_name)
             playlist_length = playlist_to_shuffle["tracks"]["total"]
             playlist_id = playlist_to_shuffle["id"]
@@ -55,9 +53,10 @@ class WockaShuffle(App):
             # it has meta data and video_thumbnail info.
             # You have to do tracks[int]["track"] to get the actual track
             tracks = get_tracks(self.spotify, playlist_id, playlist_length)
-            single_track = tracks[91]
-            print(single_track["name"])
-            print(single_track["artists"])
+            categorized_tracks = categorize(tracks)
+            shuffled_playlist = shuffle_tracks(categorized_tracks, playlist_length)
+            for i in shuffled_playlist:
+                print(f"{i[0]}:{i[2]}")
             
             
         layout = FloatLayout(size_hint=(1, 1))
