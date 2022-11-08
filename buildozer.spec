@@ -29,7 +29,7 @@ source.include_exts = py,png,jpg,kv,atlas,txt
 #source.exclude_patterns = license,images/*/*.jpg
 
 # (str) Application versioning (method 1)
-version = 0.1
+version = 0.2
 
 # (str) Application versioning (method 2)
 # version.regex = __version__ = ['"](.*)['"]
@@ -37,7 +37,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy,spotipy
+requirements = python3,kivy,spotipy,async-timeout,deprecated,wrapt,packaging,pyparsing,requests,certifi,charset-normalizer,idna,urllib3,six, pillow
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -60,7 +60,7 @@ icon.filename = %(source.dir)s/images/appicon.png
 #
 
 #
- author = Steven Truong
+#author = Steven Truong
 
 # change the major version of python used by the app
 osx.python_version = 3
@@ -108,7 +108,7 @@ android.permissions = INTERNET
 #android.sdk = 20
 
 # (str) Android NDK version to use
-#android.ndk = 23b
+android.ndk = 24
 
 # (int) Android NDK API to use. This is the minimum API your app will support, it should usually match android.minapi.
 #android.ndk_api = 21
