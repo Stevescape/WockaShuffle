@@ -37,7 +37,7 @@ version = 0.2
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy,spotipy,async-timeout,deprecated,wrapt,packaging,pyparsing,requests,certifi,charset-normalizer,idna,urllib3,six, pillow
+requirements = python3,kivy,spotipy,async-timeout,deprecated,wrapt,packaging,pyparsing,requests,certifi,charset-normalizer,idna,urllib3,six,pillow,android,kivmob,kivymd,jnius
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -50,7 +50,7 @@ presplash.filename = %(source.dir)s/images/presplash.png
 icon.filename = %(source.dir)s/images/appicon.png
 
 # (str) Supported orientation (one of landscape, sensorLandscape, portrait or all)
-#orientation = all
+orientation = portrait
 
 # (list) List of service to declare
 #services = NAME:ENTRYPOINT_TO_PY,NAME2:ENTRYPOINT2_TO_PY
@@ -99,7 +99,7 @@ android.permissions = INTERNET
 #android.features = android.hardware.usb.host
 
 # (int) Target Android API, should be as high as possible.
-#android.api = 31
+android.api = 27
 
 # (int) Minimum API your APK / AAB will support.
 #android.minapi = 21
