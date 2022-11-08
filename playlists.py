@@ -21,12 +21,13 @@ def get_tracks(spotify, playlist_id, length):
     return ret_val
 
 def categorize(tracks):
+    # Tracks is an array of songs with metadata
     ret_val = {}
     for track in tracks:
         artist = track["artists"][0]["name"]
         if artist not in ret_val.keys():
             ret_val[artist] = set()
-        ret_val[artist].add((track["name"], track["id"], artist))
+        ret_val[artist].add(track["uri"])
     return ret_val
 
 def shuffle_tracks(tracks_dict, playlist_length):
@@ -74,9 +75,26 @@ def shuffle_tracks(tracks_dict, playlist_length):
             combined_track.append(track)
     return combined_track
 
-def create_playlist(spotify, user, track_list):
-    shuffled_playlist = spotify.user_playlist_create(user, "WockaShuffle Playlist", public=False,
-                                                    description="Shuffled Playlist")
-    for i in shuffled_playlist:
-        print(i)
+def create_playlist(spotify, user, track_list, playlists, playlist_length):
+    shuffled_playlist = get_playlist(playlists, "WockaShuffle Playlist")
+
+    # If the playlist doesn't exist, create it
+    if shuffled_playlist == "Error: Could not find playlist":
+        shuffled_playlist = spotify.user_playlist_create(user, "WockaShuffle Playlist", public=False,
+                                                        description="Shuffled Playlist")
+    
+    # Replace everything in the playlist with a song
+    spotify.playlist_replace_items(shuffled_playlist["id"], ["spotify:track:7yNK27ZTpHew0c55VvIJgm"])
+    # Remove the song leaving an empty playlist
+    spotify.playlist_remove_all_occurrences_of_items(shuffled_playlist["id"], ["spotify:track:7yNK27ZTpHew0c55VvIJgm"])
+    
+    i = 0
+    end = i + 100
+    while i <= playlist_length:
+        spotify.playlist_add_items(shuffled_playlist["id"], track_list[i : end])
+        i += 100
+        end = i + 100
+        if end > playlist_length:
+            end = playlist_length
+
             

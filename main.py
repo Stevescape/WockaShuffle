@@ -14,7 +14,9 @@ def main():
         auth = SpotifyOAuth(client_id = CLIENT_ID, 
                             client_secret = CLIENT_SECRET,
                             redirect_uri = REDIRECT_URI,
-                            scope = "user-library-read, playlist-read-private, user-modify-playback-state, user-playlist-create")
+                            scope = "user-library-read, playlist-read-private, \
+                                user-modify-playback-state, user-library-modify,\
+                                     playlist-modify-private, playlist-read-collaborative")
         spotify = spotipy.Spotify(auth_manager=auth)
 
         WockaShuffle(spotify).run()

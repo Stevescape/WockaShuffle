@@ -55,23 +55,23 @@ class WockaShuffle(App):
             tracks = get_tracks(self.spotify, playlist_id, playlist_length)
             categorized_tracks = categorize(tracks)
             shuffled_track_list = shuffle_tracks(categorized_tracks, playlist_length)
-            shuffled_playlist = create_playlist(self.spotify, cur_user, shuffled_track_list)
+            shuffled_playlist = create_playlist(self.spotify, cur_user, shuffled_track_list, user_playlists, playlist_length)
             
             
             
         layout = FloatLayout(size_hint=(1, 1))
-        # Bottom Left
-        pause_button = Button(text="Pause", pos_hint={"x":0, "y":0}, size_hint=(.5, .5))
-        pause_button.bind(on_press=pause)
-        # Bottom Right
-        start_button = Button(text="Play", pos_hint={"x":0.5, "y":0}, size_hint=(.5, .5))
-        start_button.bind(on_press=start)
+        # # Bottom Left
+        # pause_button = Button(text="Pause", pos_hint={"x":0, "y":0}, size_hint=(.5, .5))
+        # pause_button.bind(on_press=pause)
+        # # Bottom Right
+        # start_button = Button(text="Play", pos_hint={"x":0.5, "y":0}, size_hint=(.5, .5))
+        # start_button.bind(on_press=start)
         # Top Left
-        shuffle_button = Button(text="Shuffle", pos_hint={"x":0, "y":0.5}, size_hint=(.5, .5))
+        shuffle_button = Button(text="Shuffle", pos_hint={"x":0.25, "y":0.25}, size_hint=(.5, .5))
         shuffle_button.bind(on_press=shuffle)
 
-        layout.add_widget(pause_button)
-        layout.add_widget(start_button)
+        # layout.add_widget(pause_button)
+        # layout.add_widget(start_button)
         layout.add_widget(shuffle_button)
         return layout
     
