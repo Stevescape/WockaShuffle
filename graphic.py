@@ -54,9 +54,9 @@ class WockaShuffle(App):
             # You have to do tracks[int]["track"] to get the actual track
             tracks = get_tracks(self.spotify, playlist_id, playlist_length)
             categorized_tracks = categorize(tracks)
-            shuffled_playlist = shuffle_tracks(categorized_tracks, playlist_length)
-            for i in shuffled_playlist:
-                print(f"{i[0]}:{i[2]}")
+            shuffled_track_list = shuffle_tracks(categorized_tracks, playlist_length)
+            shuffled_playlist = create_playlist(self.spotify, cur_user, shuffled_track_list)
+            
             
             
         layout = FloatLayout(size_hint=(1, 1))

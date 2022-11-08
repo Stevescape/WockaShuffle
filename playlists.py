@@ -73,3 +73,10 @@ def shuffle_tracks(tracks_dict, playlist_length):
         for track in tracks_to_add:
             combined_track.append(track)
     return combined_track
+
+def create_playlist(spotify, user, track_list):
+    shuffled_playlist = spotify.user_playlist_create(user, "WockaShuffle Playlist", public=False,
+                                                    description="Shuffled Playlist")
+    for i in shuffled_playlist:
+        print(i)
+            
