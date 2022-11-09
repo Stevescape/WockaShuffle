@@ -40,8 +40,8 @@ def shuffle_tracks(tracks_dict, playlist_length):
     track_list = {}
     for artist, tracks in tracks_dict.items():
         # Tracks is a set of tuples (track_name, track_id)
-        max_disparity = round(playlist_length/len(tracks))
-        min_disparity = max_disparity - 5
+        max_disparity = int(playlist_length / len(tracks))
+        min_disparity = int(max_disparity * .75)
         while min_disparity >= max_disparity:
             min_disparity -= 1
         if min_disparity < 0:
@@ -54,10 +54,15 @@ def shuffle_tracks(tracks_dict, playlist_length):
         cur = None
         for track in tracks:
             if first_run:
-                 # The first track must be handled differently
-                 
-                 # Place the first song at the start of the queue
-                cur = random.randint(0, round(playlist_length/10))
+                # The first track must be handled differently
+
+                # Artists with only 1 song in playlist will be completely random
+                if len(tracks) == 1:
+                    cur = random.randint(0, playlist_length)
+                    print(cur)
+                else:
+                    # Place the first song at the start of the queue
+                    cur = random.randint(0, int(playlist_length * .05))
                 if cur not in track_list.keys():
                     track_list[cur] = set()
                 track_list[cur].add(track)
