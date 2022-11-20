@@ -59,7 +59,6 @@ def shuffle_tracks(tracks_dict, playlist_length):
                 # Artists with only 1 song in playlist will be completely random
                 if len(tracks) == 1:
                     cur = random.randint(0, playlist_length)
-                    print(cur)
                 else:
                     # Place the first song at the start of the queue
                     cur = random.randint(0, int(playlist_length * .05))
