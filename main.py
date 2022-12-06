@@ -9,7 +9,7 @@ def main():
     # get_ids returns: [client_id, client_secret]
     if __name__ == "__main__":
         CLIENT_ID = get_id("CLIENT_ID")
-        CLIENT_SECRET = get_id("CLIENT_SECRET") 
+        CLIENT_SECRET = "068d885a0dc3448291303ffb49cbfd05"
         REDIRECT_URI = get_id("REDIRECT_URI")
         auth = SpotifyOAuth(client_id = CLIENT_ID, 
                             client_secret = CLIENT_SECRET,
