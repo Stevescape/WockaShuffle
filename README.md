@@ -1,5 +1,5 @@
-# WockaShuffle
+# This readme is for the WockaShuffle Project
+# It gives a brief overview of WockaShuffle
 Better Spotify Shuffle
 
-Grabs 1 of your playlists, shuffles the songs using it's own algorithm and then adds it into a new playlist in the
-newly shuffled order.
+My program is my own version of Spotify 
