@@ -39,7 +39,7 @@ class WockaShuffle(App):
             tracks = get_tracks(self.spotify, playlist_id, playlist_length)
             categorized_tracks = categorize(tracks)
             shuffled_track_list = shuffle_tracks(categorized_tracks, playlist_length)
-            shuffled_playlist = create_playlist(self.spotify, cur_user, shuffled_track_list, user_playlists, playlist_length)
+            shuffled_playlist = create_playlist(self.spotify, cur_user, shuffled_track_list, user_playlists, playlist_length, playlist_name)
             
         def button_selected(button):
             self.playlist_dropdown.select(button.text)
